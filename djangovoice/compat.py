@@ -5,8 +5,11 @@ from hashlib import md5
 
 if DJANGO_VERSION >= (1, 5):
     # Django 1.5+ compatibility
-    from django.contrib.auth import get_user_model
-    User = get_user_model()
+    try:
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+    except: # Django 1.7+ compatibility
+        from django.contrib.auth.models import User
 
 else:
     from django.contrib.auth.models import User
