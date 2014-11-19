@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import pgettext
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from djangovoice.compat import User
 from djangovoice.model_managers import StatusManager
@@ -7,8 +7,8 @@ from qhonuskan_votes.models import VotesField
 from qhonuskan_votes.models import ObjectsWithScoresManager
 
 STATUS_CHOICES = (
-    ('open', pgettext('status', "Open")),
-    ('closed', pgettext('status', "Closed")),
+    ('open', pgettext_lazy('status', "Open")),
+    ('closed', pgettext_lazy('status', "Closed")),
 )
 
 
